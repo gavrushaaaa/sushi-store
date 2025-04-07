@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Суши-ресторан</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("session_check.php")
+                .then(response => response.json())
+                .then(data => {
+                    if (data.isAdmin) {
+                        if (!document.querySelector(".navbar a[href='admin_dashboard.php']")) {
+                            const adminProfileLink = document.createElement('a');
+                            adminProfileLink.href = "admin_dashboard.php";
+                            adminProfileLink.textContent = "Профиль администратора";
+                            adminProfileLink.classList.add("transparent-button");
+                            document.querySelector(".navbar").appendChild(adminProfileLink);
+                        }
+                    }
+                    document.getElementById("profile-btn").href = data.profileUrl;
+                });
+
+            // Загрузка товаров
+            fetch("load_products.php")
+                .then(response => response.json())
+                .then(products => {
+                    const productsContainer = document.querySelector(".products");
+                    productsContainer.innerHTML = ''; // Очистка контейнера перед добавлением новых товаров
+                    products.forEach(product => {
+                        const productElement = document.createElement("div");
+                        productElement.classList.add("product");
+                        productElement.innerHTML = `
+                            <a href="product-description.html?product=${product.id}" class="product">
+                                <img src="${product.image}" alt="${product.name}" class="product-image">
+                                <div class="product-info">
+                                    <h2>${product.name}</h2>
+                                    <p>${product.description}</p>
+                                    <div class="product-footer">
+                                        <form action="add_to_cart.php" method="post">
+                                            <input type="hidden" name="product_id" value="${product.id}">
+                                            <button type="submit" class="cart-button">🛒 ${product.price} ₽</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </a>
+                        `;
+                        productsContainer.appendChild(productElement);
+                    });
+                });
+        });
+    </script>   
+</head>
+<body>
+    <div class="navbar">
+        <a href="main.html">Главная</a>
+        <a href="about.html">О нас</a>
+        <a href="sale.html">Акции </a>
+        <a class="transparent-button" onclick="openModal()">Регистрация</a>
+        <a href="reviews.php">Отзывы</a>
+        <a href="profile.php" id="profile-btn" class="transparent-button">Личный кабинет</a>
+        <a href="cart.php">Корзина🛒</a>
+    </div>
+
+    <div class="header">
+        <div class="logo-text">
+            <img src="images/logo.png" alt="sushi" class="logo">
+            <div class="text-container">
+                <h1>Кайдзен</h1>
+                <h1 class="phone-number">+7 996 437 2020</h1>
+            </div>
+        </div>
+    </div>
+    
+    <div class="search-container">
+        <input type="text" id="search-input" class="search" placeholder="Поиск по меню">
+    </div>
+    <div class="products">
+        <!-- Товары будут загружены сюда с помощью AJAX -->
+    </div>
+    <!-- Модальное окно регистрации (вынесено за пределы .products) -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <form class="form" action="register.php" method="post">
+                <p id="heading">Регистрация</p>
+                <div class="field">
+                    <input name="username" autocomplete="off" placeholder="Username" class="input-field" type="text" required>
+                </div>
+                <div class="field">
+                    <input name="password" placeholder="Password" class="input-field" type="password" required>
+                </div>
+                <div class="btn">
+                    <button type="submit" class="button1">Зарегистрироваться</button>
+                    <button class="button2" type="button" onclick="showLogin()">Войти</button>
+                </div>
+                <button class="button3" type="button">Забыли пароль?</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Форма входа -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <form class="form" action="login.php" method="post">
+                <p id="heading">Вход</p>
+                <div class="field">
+                    <input name="username" autocomplete="off" placeholder="Username" class="input-field" type="text" required>
+                </div>
+                <div class="field">
+                    <input name="password" placeholder="Password" class="input-field" type="password" required>
+                </div>
+                <div class="btn">
+                    <button type="submit" class="button1">Войти</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script>
+        function showLogin() {
+            document.getElementById('registerModal').style.display = 'none';
+            document.getElementById('loginModal').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

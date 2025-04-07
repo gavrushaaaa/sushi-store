@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .content h2, .content h3 {
+            text-align: center;
+        }
+        .content p, .content ul {
+            text-align: justify;
+        }
+        .content ul {
+            padding-left: 20px;
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("session_check.php")
+                .then(response => response.text())
+                .then(url => {
+                    document.getElementById("profile-btn").href = url;
+                });
+        });
+    </script> 
+</head>
+<body>
+    <div class="navbar">
+        <a href="main.html">Главная</a>
+        <a href="about.html">О нас</a>
+        <a href="sale.html">Акции</a>
+        <a class="transparent-button" onclick="openModal()">Регистрация</a>
+        <a href="profile.php" id="profile-btn" class="transparent-button">Личный кабинет</a>
+    </div>
+
+    <div class="header">
+        <div class="logo-text">
+            <img src="images/logo.png" alt="sushi" class="logo">
+            <div class="text-container">
+                <h1>Кайдзен</h1>
+                <h1 class="phone-number">+7 996 437 2020</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>О нас</h2>
+        <p>Добро пожаловать в ресторан "Кайдзен" — место, где традиции японской кухни сочетаются с современными кулинарными тенденциями. Мы гордимся тем, что предоставляем нашим клиентам только самые свежие и качественные блюда.</p>
+
+        <h3>Наша миссия</h3>
+        <p>Мы стремимся подарить каждому гостю уникальный гастрономический опыт, объединяя традиционные рецепты с инновационными подходами. Наша цель — сделать японскую кухню доступной и любимой для всех.</p>
+
+        <h3>Наши ценности</h3>
+        <ul>
+            <li><strong>Качество:</strong> Мы используем только свежие и натуральные ингредиенты.</li>
+            <li><strong>Традиции:</strong> Мы уважаем японскую культуру и следуем её кулинарным традициям.</li>
+            <li><strong>Индивидуальный подход:</strong> Мы заботимся о каждом клиенте и учитываем его предпочтения.</li>
+        </ul>
+
+        <h3>Наша история</h3>
+        <p>Ресторан "Кайдзен" был основан в 2010 году группой энтузиастов японской кухни. С самого начала мы стремились создать место, где каждый сможет насладиться настоящими японскими блюдами. За годы работы мы завоевали доверие и любовь наших клиентов, став одним из лучших ресторанов японской кухни в регионе.</p>
+
+        <h3>Контактная информация</h3>
+        <p><strong>Адрес:</strong> г. Москва, ул. Пушкина, д. Колотушкина</p>
+        <p><strong>Телефон:</strong> +7 996 437 2020</p>
+        <p><strong>Email:</strong> info@kaizen-sushi.ru</p>
+        <p><strong>Часы работы:</strong> Пн-Вс: 10:00 - 22:00</p>
+    </div>
+
+    <div class="footer">
+        <div class="footer-text">
+            <h3>Свяжитесь с нами</h3>
+            <p>Мы всегда рады вашим отзывам и предложениям. Свяжитесь с нами по телефону или электронной почте, чтобы задать вопросы или оставить отзыв.</p>
+            <p>Следите за нами в социальных сетях:</p>
+            <ul class="social-links">
+                <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+            </ul>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

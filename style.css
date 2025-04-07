@@ -1,0 +1,815 @@
+head {
+    background-color: #686f75;
+    font-family: Arial, sans-serif;
+}
+
+body, html {
+    background-color: #131414;
+    color: white; /* Сделать текст белым */
+    overflow-x: hidden; /* Убрать горизонтальный скролл */
+    width: 100%;
+}
+
+
+
+h1 {
+    color: #F2F2F2;
+    font-size: 2em;
+    text-align: left;
+}
+
+.content {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    text-decoration: none;
+}
+
+.content a {
+    display: inline-block; /* Делаем элемент блочным, чтобы применить отступы */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    background-color: #28292a; /* Фоновый цвет кнопки */
+    color: white; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Закругленные углы */
+    transition: background-color 0.3s ease; /* Плавный переход фона */
+}
+
+.content a:hover {
+    background-color: #000000; /* Цвет фона при наведении */
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Разделение элементов по горизонтали */
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 10px 20px; /* Добавление отступов */
+    background-color: #222427;
+    z-index: 10;
+}
+
+.logo-text {
+    display: flex;
+    align-items: center;
+}
+
+.logo-text img {
+    margin-right: 10px; /* Отступ между логотипом и текстом */
+}
+
+.logo {
+    width: 100px; /* Уменьшение ширины логотипа */
+    height: 100px; /* Уменьшение высоты логотипа */
+}
+
+.text-container {
+    display: flex;
+    align-items: center;
+}
+
+.text-container h1 {
+    margin-right: 20px; /* Отступ между названием и номером телефона */
+}
+
+.phone-number {
+    font-size: 20px; /* Увеличить размер текста */
+    color: #F2F2F2;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center; /* Выровнять текст по центру */
+    background-color: #222427;
+    align-items: center;
+    color: #FFFFFF; /* Изменить цвет текста */
+    padding: 17px 20px; /* Увеличить вертикальный отступ */
+    position: fixed;
+    height: 0;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar a:hover {
+    color: #830dcd; /* Изменить цвет текста при наведении */
+}
+
+.navbar a {
+    color: #FFFFFF; /* Изменить цвет текста ссылок */
+    text-decoration: none; /* Убрать подчеркивание */
+    margin: 0 15px; /* Добавить отступы между ссылками */
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Выровнять товары по центру */
+    gap: 5px; /* Добавить отступы между товарами */
+    margin-top: 200px; /* Отступ сверху для размещения под навигационной панелью */
+}
+
+.product {
+    color: white;
+    text-align: center;
+    max-width: 400px; /* Увеличить ширину */
+    margin: 5px; /* Установить равные отступы со всех сторон */
+    text-decoration: none;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Чуть скругленные углы */
+}
+
+.product img:hover {
+    transform: scale(1.1); /* Небольшое увеличение изображения при наведении */
+}
+
+.product-info {
+    background-color: black; /* Черная рамка */
+    padding: 10px;
+    margin-top: -10px; /* Убрать отступ сверху */
+    border-radius: 10px; /* Закругленные углы рамки */
+}
+
+.product-info h2, .product-info p {
+    margin: 5px 0;
+    text-align: left;
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    margin-top: 10px;
+}
+
+.price {
+    font-size: 1.2em;
+    color: #F2F2F2;
+    font-family: Arial, sans-serif;
+}
+
+.cart-button {
+    background-color: #FFFFFF; /* Цвет фона кнопки */
+    color: #000000; /* Цвет текста кнопки */
+    border: none; /* Убрать рамку */
+    padding: 10px 20px;
+    border-radius: 10px; /* Закругленные углы кнопки */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.cart-button:hover {
+    background-color: #830dcd; /* Изменить цвет фона при наведении */
+}
+
+.cart-icon {
+    font-size: 1.2em; /* Размер смайлика корзины */
+    margin-right: 5px; /* Отступ между смайликом и текстом */
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем содержимое */
+    justify-content: center;
+    margin-top: 15px; /* Отступ сверху, чтобы не перекрывалось хедером */
+    margin-bottom: 20px; /* Отступ перед товарами */
+}
+
+.search {
+    width: 300px; /* Фиксированная ширина */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #e8dede;
+    border-radius: 5px;
+    outline: none;
+    text-align: center; /* Центрирование текста */
+    background-color: #222427;
+    color: rgb(155, 14, 243);
+}
+
+/* Убираем отступы по умолчанию */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Контейнер для описания товара */
+#product-description {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Растягиваем на всю высоту экрана */
+    overflow: hidden; /* Чтобы изображение не выходило за пределы */
+}
+
+/* Изображение на весь экран */
+#product-description img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Растягиваем изображение, сохраняя пропорции */
+}
+
+/* Полупрозрачный прямоугольник */
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px; /* Ширина прямоугольника */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный цвет */
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin-left: 20px; /* Отступ слева */
+}
+
+/* Стили для текста */
+.overlay h2 {
+    margin-top: 0;
+    font-size: 24px;
+    text-decoration: none;
+    text-align: left; /* Выровнять текст по левому краю */
+    padding-left: 10px; /* Добавить отступ слева */
+}
+
+.overlay p {
+    margin: 10px 0;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: left; /* Выровнять текст по левому краю */
+    padding-left: 10px; /* Добавить отступ слева */
+}
+
+.overlay p strong {
+    font-weight: bold;
+    text-decoration: none;
+    text-align: left; /* Выровнять текст по левому краю */
+    padding-left: 10px; /* Добавить отступ слева */
+}
+
+/* From Uiverse.io by Praashoo7 */ 
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 0.4em;
+    background-color: #171717;
+    border-radius: 25px;
+    transition: .4s ease-in-out;
+}
+
+.form:hover {
+    transform: scale(1.05);
+    border: 1px solid black;
+}
+
+#heading {
+    text-align: center;
+    margin: 2em;
+    color: rgb(255, 255, 255);
+    font-size: 1.2em;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    border-radius: 25px;
+    padding: 0.6em;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #171717;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+
+.input-icon {
+    height: 1.3em;
+    width: 1.3em;
+    fill: white;
+}
+
+.input-field {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #d3d3d3;
+}
+
+.form .btn {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 2.5em;
+}
+
+.button1 {
+    padding: 0.5em;
+    padding-left: 1.1em;
+    padding-right: 1.1em;
+    border-radius: 5px;
+    margin-right: 0.5em;
+    border: none;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #252525;
+    color: white;
+}
+
+.button1:hover {
+    background-color: black;
+    color: rgb(248, 247, 247);
+}
+
+.button2 {
+    padding: 0.5em;
+    padding-left: 2.3em;
+    padding-right: 2.3em;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #252525;
+    color: rgb(245, 243, 243);
+}
+
+.button2:hover {
+    background-color: black;
+    color: rgb(250, 250, 250);
+}
+
+.button3 {
+    margin-bottom: 3em;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #252525;
+    color: rgb(251, 251, 251);
+}
+
+.button3:hover {
+    background-color: rgb(123, 0, 255);
+    color: white;
+}
+
+.modal {
+    display: none;
+    position: fixed; 
+    z-index: 1000; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.226); /* Полупрозрачный черный фон */
+}
+
+.modal-content {
+    margin: 10% auto; /* Центрирование модального окна */
+    padding: 20px;
+    width: 80%; /* Ширина модального окна */
+    max-width: 600px; /* Ограничение максимальной ширины */
+    border-radius: 10px; /* Закругленные углы */
+}
+
+.transparent-button {
+    color: #FFFFFF; /* Цвет текста */
+    padding: 10px 2px;
+    border-radius: 5px; /* Закругленные углы */
+    cursor: pointer;
+}
+
+.transparent-button:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Легкий полупрозрачный фон при наведении */
+}
+
+.cart-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #222427;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.cart-item-image {
+    width: 100px; /* Установите ширину изображения */
+    height: 100px; /* Установите высоту изображения */
+    object-fit: cover; /* Сохраните пропорции изображения */
+    border-radius: 10px; /* Закругленные углы */
+    margin-right: 20px; /* Отступ справа */
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-info h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #F2F2F2;
+}
+
+.cart-item-info p {
+    margin: 5px 0 0;
+    font-size: 1em;
+    color: #F2F2F2;
+}
+.cart-item-info form {
+    display: flex;
+    align-items: center;
+}
+.cart-item-info button:hover {
+    background-color: #830dcd;
+}
+
+.cart-item-info button {
+    background-color: #28292a;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.continue-shopping-button {
+    display: inline-block; /* Делаем элемент блочным, чтобы применить отступы */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    background-color: #28292a; /* Фоновый цвет кнопки */
+    color: white; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Закругленные углы */
+    transition: background-color 0.3s ease; /* Плавный переход фона */
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.continue-shopping-button:hover {
+    background-color: #830dcd; /* Цвет фона при наведении */
+}
+.total-price {
+    text-align: left;
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #F2F2F2;
+}
+
+.checkout-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28292a;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.checkout-button:hover {
+    background-color: #830dcd;
+}
+
+.checkout-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #222427;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #F2F2F2;
+}
+
+.checkout-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.checkout-container p {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.checkout-form .field {
+    margin-bottom: 15px;
+}
+
+.checkout-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.checkout-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e8dede;
+    border-radius: 5px;
+    background-color: #28292a;
+    color: #F2F2F2;
+    font-size: 1em;
+}
+
+.checkout-form input[type="text"]:focus {
+    border-color: #830dcd;
+    outline: none;
+}
+
+.button1 {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #830dcd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button1:hover {
+    background-color: #5e0a9e;
+}
+
+.orders {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    
+}
+
+.order {
+    background-color: #222427;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: calc(33.333% - 20px); /* Три заказа в ряд с отступами */
+}
+
+.order p {
+    margin: 5px 0;
+    color: #F2F2F2;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.order ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.order li {
+    margin: 5px 0;
+    color: #F2F2F2;
+    padding: 10px;
+    border-radius: 5px;
+}
+.reviews {
+    list-style-type: none;
+    padding: 0;
+}
+
+.review {
+    background-color: #222427;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.review p {
+    margin: 5px 0;
+    color: #F2F2F2;
+}
+
+.field {
+    margin-bottom: 15px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.field select,
+.field textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e8dede;
+    border-radius: 5px;
+    background-color: #28292a;
+    color: #F2F2F2;
+    font-size: 1em;
+}
+
+.field select:focus,
+.field textarea:focus {
+    border-color: #830dcd;
+    outline: none;
+}
+/* Стили для панели администратора */
+.admin-dashboard {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #222427;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #F2F2F2;
+}
+
+.admin-dashboard h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.admin-dashboard .admin-section {
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    flex: 1 1 30%; /* Установите гибкую ширину */
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.admin-dashboard {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет элементам переноситься на новую строку */
+    justify-content: space-around; /* Равномерное распределение элементов */
+}
+
+.admin-dashboard .admin-section:hover {
+    transform: scale(1.05);
+}
+
+.admin-dashboard .admin-section i {
+    font-size: 50px;
+    color: #F2F2F2;
+    margin-bottom: 10px;
+}
+
+.admin-dashboard .admin-section h3 {
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+
+.admin-dashboard .admin-section p {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.admin-dashboard .admin-section button {
+    background-color: #830dcd;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.admin-dashboard .admin-section button:hover {
+    background-color: #5e0a9e;
+}
+
+.admin-dashboard .admin-content {
+    display: none;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.admin-dashboard .admin-content h3 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.admin-dashboard .field {
+    margin-bottom: 15px;
+}
+
+.admin-dashboard label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.admin-dashboard input[type="text"],
+.admin-dashboard input[type="number"],
+.admin-dashboard textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e8dede;
+    border-radius: 5px;
+    background-color: #28292a;
+    color: #F2F2F2;
+    font-size: 1em;
+}
+
+.admin-dashboard input[type="text"]:focus,
+.admin-dashboard input[type="number"]:focus,
+.admin-dashboard textarea:focus {
+    border-color: #830dcd;
+    outline: none;
+}
+
+.admin-dashboard .button1,
+.admin-dashboard .button2 {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #830dcd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.admin-dashboard .button1:hover,
+.admin-dashboard .button2:hover {
+    background-color: #5e0a9e;
+}
+
+.admin-dashboard .products,
+.admin-dashboard .reviews {
+    list-style-type: none;
+    padding: 0;
+}
+
+.admin-dashboard .product,
+.admin-dashboard .review {
+    background-color: #222427;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.admin-dashboard .product img,
+.admin-dashboard .review img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.admin-dashboard .product-info,
+.admin-dashboard .review-info {
+    flex: 1;
+}
+
+.admin-dashboard .product-info h2,
+.admin-dashboard .review-info h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #F2F2F2;
+}
+
+.admin-dashboard .product-info p,
+.admin-dashboard .review-info p {
+    margin: 5px 0 0;
+    font-size: 1em;
+    color: #F2F2F2;
+}
